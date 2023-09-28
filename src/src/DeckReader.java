@@ -40,13 +40,13 @@ public class DeckReader {
             
             return buffered;
             
-        } catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException fileNotFoundEx) {
+            Logger.getLogger(DeckReader.class.getName()).log(Level.SEVERE, null, ex);
             try {
                 deckReader.close();
-            } catch (IOException ex1) {
-                Logger.getLogger(DeckReader.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-            Logger.getLogger(DeckReader.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ioException) {
+                Logger.getLogger(DeckReader.class.getName()).log(Level.SEVERE, null, ioException);
+            } 
         }
         return null;
     }
